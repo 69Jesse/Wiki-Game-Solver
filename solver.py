@@ -58,7 +58,7 @@ class Solver:
         lowered_end = end.lower()
 
         already_seen: set[str] = set()
-        next_words: set[str] = set([start])
+        next_words: set[str] = set((start,))
 
         recent_paths: dict[str, list[str]] = {}
         actual_names: dict[str, str] = {}
