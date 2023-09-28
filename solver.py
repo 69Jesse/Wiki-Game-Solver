@@ -29,7 +29,8 @@ class Solver:
         self,
         word: str,
     ) -> NewWordsResult:
-        url = f'https://en.wikipedia.org/wiki/{word}'
+        # url = f'https://en.wikipedia.org/wiki/{word}'
+        url = f'https://www.thewikigame.com/group/wiki/{word}'
         async with self.session.get(url) as response:
             html = await response.text()
 
@@ -66,6 +67,7 @@ class Solver:
         found: bool = False
         while not found:
             print('Searching...')
+            # print(next_words)
             data: list[NewWordsResult] = await asyncio.gather(*(self.get_new_words(word) for word in next_words))
             next_words = set()
 
@@ -105,8 +107,8 @@ class Solver:
 async def main() -> None:
     async with Solver() as solver:
         await solver.solve(
-            start='Superpower',
-            end='Naval warfare',
+            start='Fine art',
+            end='Fruit',
         )
 
 
