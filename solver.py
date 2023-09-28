@@ -105,8 +105,8 @@ class Solver:
 async def main() -> None:
     async with Solver() as solver:
         await solver.solve(
-            start='Anime',
-            end='Albert Einstein',
+            start='Superpower',
+            end='Naval warfare',
         )
 
 
